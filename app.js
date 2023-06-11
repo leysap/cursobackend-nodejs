@@ -3,9 +3,8 @@ const { generarNumeroAleatorio, verificarAdivinanza } = require("./adivinanza")
 
 //OBTENEMOS EL NUMERO QUE INGRESO EL USUARIO
 const obtenerNumeroUsuario= () => {
-    return readlineSync.question("Ingrese un numero: ");
+    return parseInt(readlineSync.question("Ingrese un numero: "));
 }
-
 // JUEGO QUE TOMA EL NUMERO INGRESADO POR EL USUARIO Y LO VERIFICA
 const juegoAdivinanza = () => {
     const numero_secreto = generarNumeroAleatorio();
@@ -14,7 +13,7 @@ const juegoAdivinanza = () => {
     console.log("Intenta adivinar el numero del 1 al 100")
  
     while(numero_secreto !== numero_adivinado){
-        numero_adivinado = Number(obtenerNumeroUsuario());
+        numero_adivinado = obtenerNumeroUsuario();
         verificarAdivinanza(numero_secreto, numero_adivinado)
     }
 
